@@ -42,10 +42,10 @@ ENV SPARK_HOME /opt/spark
 ENV SPARKLING_WATER_HOME /opt/sparkling-water
 #ENV MASTER spark://spark-master:7077
 
-RUN echo "import org.apache.spark.h2o._" > /home/ubuntu/flow.scala
-RUN echo "val hc = new H2OContext(sc).start()" >> /home/ubuntu/flow.scala
+RUN echo "import org.apache.spark.h2o._" > ${SPARK_HOME}/flow.scala
+RUN echo "val hc = new H2OContext(sc).start()" >> ${SPARK_HOME}/flow.scala
 
-CMD ${SPARKLING_WATER_HOME}/bin/sparkling-shell -i /home/ubuntu/flow.scala
+CMD bin/sparkling-shell -i ${SPARK_HOME}/flow.scala
 
 WORKDIR ${SPARKLING_WATER_HOME}
 
