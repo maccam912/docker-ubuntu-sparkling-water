@@ -45,7 +45,7 @@ ENV SPARKLING_WATER_HOME /opt/sparkling-water
 RUN echo "import org.apache.spark.h2o._" > ${SPARK_HOME}/flow.scala
 RUN echo "val hc = new H2OContext(sc).start()" >> ${SPARK_HOME}/flow.scala
 
-CMD bin/sparkling-shell -i ${SPARK_HOME}/flow.scala
+CMD ${SPARKLING_WATER_HOME}/bin/sparkling-shell -i ${SPARK_HOME}/flow.scala
 
 WORKDIR ${SPARKLING_WATER_HOME}
 
